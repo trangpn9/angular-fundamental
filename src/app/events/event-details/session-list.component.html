@@ -1,0 +1,30 @@
+<div class="alert alert-success" *ngFor="let session of visibilitySessions">
+  <div class="float-left mr-2" *ngIf="auth.isAuthenticated()">
+    <upvote (vote)="toggleVote(session)" [count]="session.voters?.length" [voted]="userHasVoted(session)"></upvote>
+  </div>
+
+  <!-- Example multiple ng-content -->
+  <collapse-well>
+    <div well-title>
+      {{ session.name }}
+      <fa-icon [icon]="faFireAlt"></fa-icon>
+      <em class="fas fa-angry">{{session.voters.length}}</em>
+      <!-- <i *ngIf="session.voters.length > 3" class="glyphicon glyphicon-fire" style="color: red">
+      </i> -->
+    </div>
+    <div well-body>
+      <h6>{{ session.presenter }}</h6>
+      <span>Duration: {{ session.duration | duration }}</span><br />
+      <span>Level: {{ session.level }}</span>
+      <p>{{ session.abstract }}</p>
+    </div>
+  </collapse-well>
+
+  <!-- Example simpple ng-content -->
+  <!-- <collapse-well [sessionName]="session.name">
+    <h6>{{ session.presenter }}</h6>
+    <span>Duration: {{ session.duration }}</span><br />
+    <span>Level: {{ session.level }}</span>
+    <p>{{ session.abstract }}</p>
+  </collapse-well> -->
+</div>

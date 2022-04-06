@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-4 mt-4" *ngFor="let event of events">
+      <fa-icon [icon]="faHeart"></fa-icon>
+      <fa-icon [icon]="faHeartbeat"></fa-icon>
+      <fa-icon [icon]="faHeartBroken"></fa-icon>
+
+      <event-thumbnail      
+        [event]="event"
+        (eventClick)="handleEventClickMe($event)"
+      ></event-thumbnail>
+    </div>
+  </div>
+</div>
